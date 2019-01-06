@@ -12,7 +12,7 @@ public class GetUserEndPeriod {
     private PreparedStatement PreparedSQLStatement = null;
     private ResultSet resultSet = null;
 
-    public List<String> getUserEndPeriod( String current_date ) throws SQLException, ClassNotFoundException {
+    public List<String> getUserEndPeriod( String current_date, String server_id) throws SQLException, ClassNotFoundException {
         ConnectToDB connectToDB = new ConnectToDB();
         connectToDB.connect();
 
@@ -20,8 +20,9 @@ public class GetUserEndPeriod {
 
         try {
 
-            PreparedSQLStatement = connectToDB.connectToDatabase.prepareStatement("SELECT * from Users WHERE newcome_end_period=?;");
+            PreparedSQLStatement = connectToDB.connectToDatabase.prepareStatement("SELECT * from Users WHERE newcome_end_period=? AND server_id=?;");
             PreparedSQLStatement.setString(1, current_date);
+            PreparedSQLStatement.setString(2, server_id);
 
             resultSet = PreparedSQLStatement.executeQuery();
 

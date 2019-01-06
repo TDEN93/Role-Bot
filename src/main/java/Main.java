@@ -27,7 +27,7 @@ public class Main {
 
         api.getServers().forEach(server -> {
 
-            ScheduledTaskMain scheduledTaskMain = new ScheduledTaskMain(server);
+            ScheduledTaskMain scheduledTaskMain = new ScheduledTaskMain(server.getIdAsString(), api);
 
             try {
                 scheduledTaskMain.start();

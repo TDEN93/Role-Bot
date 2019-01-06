@@ -10,10 +10,8 @@ public class UserLeaveListener implements ServerMemberLeaveListener {
     public void onServerMemberLeave( ServerMemberLeaveEvent event ) {
 
         try {
-
             RemoveUserFromDB removeUserFromDB = new RemoveUserFromDB();
-            removeUserFromDB.removeUserFromDB(event.getUser().getIdAsString());
-
+            removeUserFromDB.removeUserFromDBFromServer(event.getUser().getIdAsString(), event.getServer().getIdAsString());
         } catch ( Exception e ) {
             e.printStackTrace();
         }

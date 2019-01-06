@@ -44,7 +44,7 @@ public class UserJoinListener implements ServerMemberJoinListener {
             String userEndPeriod = format.format(currentDate);
 
             AddUserToDB addUserToDB = new AddUserToDB();
-            addUserToDB.addUser(user_id, userJoinDate, userEndPeriod);
+            addUserToDB.addUser(user_id, userJoinDate, userEndPeriod, server.getIdAsString());
 
             if( !server.getRolesByNameIgnoreCase("Newcomer").isEmpty() ) {
                 Role role = server.getRolesByNameIgnoreCase("Newcomer").get(0);
