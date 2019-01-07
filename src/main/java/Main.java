@@ -1,5 +1,3 @@
-import SQLITE.DiscordDB;
-
 import UserStatusUpdate.ScheduledTaskMain;
 import UserStatusUpdate.UserJoinListener;
 import UserStatusUpdate.UserLeaveListener;
@@ -9,12 +7,7 @@ import org.javacord.api.DiscordApiBuilder;
 import org.javacord.api.entity.permission.*;
 
 public class Main {
-
-//    private static DiscordDB discordTableInDataBase = new DiscordDB();
-//    private static String token = discordTableInDataBase.getDiscordAuthToken();
-
     public static void main( String[] args ) {
-
 
         DiscordApi api = new DiscordApiBuilder().setToken(System.getenv("token")).login().join();
 
