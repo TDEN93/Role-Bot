@@ -7,12 +7,12 @@ public class UserLeaveListener implements ServerMemberLeaveListener {
 
     @Override
     public void onServerMemberLeave( ServerMemberLeaveEvent event ) {
-
-        try {
-            RemoveUserFromDB removeUserFromDB = new RemoveUserFromDB();
-            removeUserFromDB.removeUserFromDBFromServer(event.getUser().getIdAsString(), event.getServer().getIdAsString());
-        } catch ( Exception e ) {
-            e.printStackTrace();
-        }
+//
+//        try {
+//            RemoveUserFromDB removeUserFromDB = new RemoveUserFromDB();
+//            removeUserFromDB.removeUserFromDBFromServer(event.getUser().getIdAsString(), event.getServer().getIdAsString());
+//        } catch ( Exception e ) {
+//            e.printStackTrace();
+//        }
     }
 }

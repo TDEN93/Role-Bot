@@ -10,12 +10,13 @@ import org.javacord.api.entity.permission.*;
 
 public class Main {
 
-    private static DiscordDB discordTableInDataBase = new DiscordDB();
-    private static String token = discordTableInDataBase.getDiscordAuthToken();
+//    private static DiscordDB discordTableInDataBase = new DiscordDB();
+//    private static String token = discordTableInDataBase.getDiscordAuthToken();
 
     public static void main( String[] args ) {
 
-        DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
+
+        DiscordApi api = new DiscordApiBuilder().setToken(System.getenv("token")).login().join();
 
         Permissions permissions = new PermissionsBuilder().setState(PermissionType.MANAGE_ROLES, PermissionState.ALLOWED).build();
 
