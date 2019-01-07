@@ -1,7 +1,6 @@
 package UserStatusUpdate;
 
 import org.javacord.api.DiscordApi;
-import org.javacord.api.entity.server.Server;
 
 import java.util.Timer;
 
@@ -15,11 +14,11 @@ public class ScheduledTaskMain {
         this.api = api;
     }
 
-    public void start() throws InterruptedException {
+    public void start() {
 
         Timer time = new Timer();
         ScheduledTask st = new ScheduledTask(server_id, api);
-        time.schedule(st, 1000, 1000);
+        time.schedule(st, 10000, 10000);
 
     }
 }

@@ -1,15 +1,12 @@
 package UserStatusUpdate;
 
-import Database.GetUserEndPeriod;
-import Database.RemoveUserFromDB;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.entity.permission.Role;
 import org.javacord.api.entity.server.Server;
+import org.javacord.api.entity.user.User;
 
 import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.TimerTask;
-import java.util.Date;
+import java.util.*;
 
 public class ScheduledTask extends TimerTask {
 
@@ -18,42 +15,51 @@ public class ScheduledTask extends TimerTask {
     private DiscordApi api;
 
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+    private Long userJoinDateInEpochMilli;
+    private Date userJoinDate;
+    private String userJoinDateFormatted;
+    private Date endOfMonthDate;
+    private String endOfMonthDateFormatted;
 
-
-    public ScheduledTask(String server_id, DiscordApi api ) {
+    protected ScheduledTask(String server_id, DiscordApi api ) {
         this.server_id = server_id;
         this.api = api;
     }
 
     public void run() {
-
-        Date currentDate = new Date();
-
-        GetUserEndPeriod endPeriod = new GetUserEndPeriod();
-
         try {
 
-            server = api.getServerById(server_id).get();
+            if(api.getServerById(server_id).isPresent()) {
+                server = api.getServerById(server_id).get();
+            }
 
-            List<String> userIDs = endPeriod.getUserEndPeriod(format.format(currentDate), server_id);
+            Collection<User> users = server.getMembers();
 
-            Role role = server.getRolesByNameIgnoreCase("Newcomer").get(0);
+            users.forEach(user -> {
+                if(user.getJoinedAtTimestamp(server).isPresent()) {
 
-            if( !userIDs.isEmpty() ) {
+                    userJoinDateInEpochMilli = user.getJoinedAtTimestamp(server).get().toEpochMilli();
 
-                RemoveUserFromDB removeUserFromDB = new RemoveUserFromDB();
+                    userJoinDate = new Date(userJoinDateInEpochMilli);
 
-                int userIDLength = userIDs.size();
+                    userJoinDateFormatted = format.format(userJoinDate);
 
-                for( int i = 0; i < userIDLength; i++ ) {
-                    if (server.getMemberById(userIDs.get(i)).isPresent()) {
+                    Calendar addMonthToJoinDate = Calendar.getInstance();
+                    addMonthToJoinDate.setTime(userJoinDate);
+                    addMonthToJoinDate.add(Calendar.MONTH, +1);
 
-                        server.removeRoleFromUser(server.getMemberById(userIDs.get(i)).get(), role);
-                        removeUserFromDB.removeUserFromDBFromDate(userIDs.get(i), format.format(currentDate));
+                    endOfMonthDate = addMonthToJoinDate.getTime();
+                    endOfMonthDateFormatted = format.format(endOfMonthDate);
 
+                    if(userJoinDateFormatted.equalsIgnoreCase(endOfMonthDateFormatted)) {
+                        Role regularRole = server.getRolesByNameIgnoreCase("Regular").get(0);
+                        Role newcomerRole = server.getRolesByNameIgnoreCase("Newcomer").get(0);
+
+                        server.removeRoleFromUser(user, newcomerRole);
+                        server.addRoleToUser(user,regularRole);
                     }
                 }
-            }
+            });
 
         } catch ( Exception e ) {
             e.printStackTrace();
