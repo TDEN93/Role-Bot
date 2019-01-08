@@ -1,0 +1,234 @@
+"C:\Program Files\Java\jdk-10.0.2\bin\java.exe" -Dp=param1 "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.2.3\lib\idea_rt.jar=50613:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2018.2.3\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\denne\iCloudDrive\72PinBot\out\production\classes;C:\Users\denne\.gradle\caches\modules-2\files-2.1\de.btobastian.sdcf4j\sdcf4j-javacord\v1.0.10\1482bedf725fcd53c1f8fa1bb5ee61e4719d35fc\sdcf4j-javacord-v1.0.10.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\de.btobastian.sdcf4j\sdcf4j-core\v1.0.10\dbe895cd0f51dcb9e049052278a5d167536c6610\sdcf4j-core-v1.0.10.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-lambda-java-core\1.1.0\b25d4345c6e9e8be78b2803dd43d812f15178a81\aws-lambda-java-core-1.1.0.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-lambda-java-events\1.1.0\88cb79215754ca42b37a07296ccd8ccfacd45fc5\aws-lambda-java-events-1.1.0.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-java-sdk-dynamodb\1.11.478\e053a7c1aa9e0290009d192f250e5e81aa4488ca\aws-java-sdk-dynamodb-1.11.478.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-java-sdk-s3\1.11.478\9a1c1e2f6d85b36fdbdb014e08c9875935263e54\aws-java-sdk-s3-1.11.478.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-java-sdk-sns\1.11.478\82068cffb2822d48c7281095a439c3ef04eeb670\aws-java-sdk-sns-1.11.478.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-java-sdk-cognitoidentity\1.11.478\dce034cb76f35a3782d32d7ed340ded21c9b2a58\aws-java-sdk-cognitoidentity-1.11.478.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-java-sdk-kinesis\1.11.478\1f9c727d31b7f1a1fdb925c38caa7aad789da27d\aws-java-sdk-kinesis-1.11.478.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\org.javacord\javacord-core\3.0.1\3bfe3d808c8b95261a0e3064a8b6d40b610f5b96\javacord-core-3.0.1.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\org.javacord\javacord-api\3.0.1\3cc163963ec28bb88135bbfbc697d6ce9d1ca07b\javacord-api-3.0.1.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-java-sdk-kms\1.11.478\69191f676aa46e9c5ac7d9f5b7be393c510c4a96\aws-java-sdk-kms-1.11.478.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-java-sdk-sqs\1.11.478\3fde74b4680dce3472e0f02c03b112c7d5b5d71e\aws-java-sdk-sqs-1.11.478.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\aws-java-sdk-core\1.11.478\35a129ed58037867cd01b3a8aea1217132485fd2\aws-java-sdk-core-1.11.478.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.amazonaws\jmespath-java\1.11.478\b41b65f13f55fa930a65782d804607afdf6ce3cc\jmespath-java-1.11.478.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\logging-interceptor\3.9.1\36e71ab9e903fc4d1b4a58d80572a91d9fd60caf\logging-interceptor-3.9.1.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.9.1\84b4b7d1c4a238e7899972b7446c250691e65f1f\okhttp-3.9.1.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.9.3\193b96ef555b2f2573b576887ba9a93e4bf48e8c\jackson-databind-2.9.3.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.neovisionaries\nv-websocket-client\1.31\e101d5221d6315ba4165193e912c0cebe5ef50d5\nv-websocket-client-1.31.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-api\2.11.0\bede79a3f150711634a3047985517431bf6499f2\log4j-api-2.11.0.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient\4.5.5\1603dfd56ebcd583ccdf337b6c3984ac55d89e58\httpclient-4.5.5.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\commons-logging\commons-logging\1.2\4bfc12adfe4842bf07b657f0369c4cb522955686\commons-logging-1.2.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\software.amazon.ion\ion-java\1.0.2\ee9dacea7726e495f8352b81c12c23834ffbc564\ion-java-1.0.2.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.dataformat\jackson-dataformat-cbor\2.6.7\ba9e74b11135b18248e960df657a2b86ae77a079\jackson-dataformat-cbor-2.6.7.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\joda-time\joda-time\2.8.1\f5bfc718c95a7b1d3c371bb02a188a4df18361a9\joda-time-2.8.1.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.13.0\a9283170b7305c8d92d25aff02a6ab7e45d06cbe\okio-1.13.0.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.9.0\7c10d545325e3a6e72e06381afe469fd40eb701\jackson-annotations-2.9.0.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.9.3\ea9b6fc7bc3ccba9777b0827091f9aa1f8580371\jackson-core-2.9.3.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpcore\4.4.9\a86ce739e5a7175b4b234c290a00a5fdb80957a0\httpcore-4.4.9.jar;C:\Users\denne\.gradle\caches\modules-2\files-2.1\commons-codec\commons-codec\1.10\4b95f4897fa13f2cd904aee711aeafc0c5295cd8\commons-codec-1.10.jar Main
+2019-01-08 12:04:23.447-0600 INFO org.javacord.core.util.logging.ExceptionLoggerDelegateImpl No Log4j2 compatible logger was found. Using default Javacord implementation!
+Bot has successfully started
+You can invite the bot by using the following url: https://discordapp.com/oauth2/authorize?client_id=530233658313932810&scope=bot&permissions=268435456
+
+DRY [On Server Join]: Getting Server.. 
+Server: Server (id: 530238092737511424, name: 72PinBotTest)
+
+DRY [On Server Join]: Getting Members.. Size: 4
+
+DRY [On Server Join]: Creating Roles..
+
+DRY [On Server Join]: Created Role -> Newcomer
+DRY [On Server Join]: Created Role -> Regular
+DRY [On Server Join]: Created Role -> Pimp
+DRY [On Server Join]: Created Role -> Pimpest
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> 72Pin_Bot
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> SamuraiLink3
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> Josh
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> Tetro
+
+DRY [On Server Join]: Getting Server ID and API:
+DRY [On Server Join]: Server ID: 530238092737511424
+DRY [On Server Join]: API: org.javacord.core.DiscordApiImpl@26e5ed78
+
+DRY [On Server Join]: Starting Scheduled Task
+
+DRY [Scheduled 72PinBotTest]: Getting Server ID.. 
+DRY [Scheduled 72PinBotTest]: Server ID: Server (id: 530238092737511424, name: 72PinBotTest)
+
+DRY [Scheduled 72PinBotTest]: Found Roles
+
+DRY [Scheduled 72PinBotTest]: Newcomer Async Started.. 
+
+DRY [Scheduled 72PinBotTest]: Regular Async Started 
+
+DRY [Scheduled 72PinBotTest]: Getting Newcomers.. 
+DRY [Scheduled 72PinBotTest]: Newcomer Size: 0
+
+DRY [Scheduled 72PinBotTest]: Newcomer Async Finished 
+
+DRY [Scheduled 72PinBotTest]: Getting Regulars.. 
+DRY [Scheduled 72PinBotTest]: Regular Size: 0
+
+DRY [Scheduled 72PinBotTest]: Regular Async Finished 
+
+DRY [Scheduled 72PinBotTest]: SixMonth Async Started 
+
+DRY [Scheduled 72PinBotTest]: Getting SixMonths.. 
+DRY [Scheduled 72PinBotTest]: SixMonths Size: 0
+
+DRY [Scheduled 72PinBotTest]: SixMonth Async Finished 
+
+DRY [New Member]: Getting Server.. 
+
+DRY [New Member]: Server: Server (id: 530238092737511424, name: 72PinBotTest)
+
+DRY [New Member]: Server Has Newcomer Role: true
+
+DRY [New Member]: Added Newcomer Role -> Tetro
+
+DRY [Scheduled 72PinBotTest]: Getting Server ID.. 
+DRY [Scheduled 72PinBotTest]: Server ID: Server (id: 530238092737511424, name: 72PinBotTest)
+
+DRY [Scheduled 72PinBotTest]: Found Roles
+
+DRY [Scheduled 72PinBotTest]: Newcomer Async Started.. 
+
+DRY [Scheduled 72PinBotTest]: Regular Async Started 
+
+DRY [Scheduled 72PinBotTest]: SixMonth Async Started 
+
+DRY [Scheduled 72PinBotTest]: Getting Newcomers.. 
+DRY [Scheduled 72PinBotTest]: Newcomer Size: 0
+
+DRY [Scheduled 72PinBotTest]: Newcomer Async Finished 
+
+DRY [Scheduled 72PinBotTest]: Getting SixMonths.. 
+DRY [Scheduled 72PinBotTest]: SixMonths Size: 0
+
+DRY [Scheduled 72PinBotTest]: SixMonth Async Finished 
+
+DRY [Scheduled 72PinBotTest]: Getting Regulars.. 
+DRY [Scheduled 72PinBotTest]: Regular Size: 0
+
+DRY [Scheduled 72PinBotTest]: Regular Async Finished 
+
+DRY [On Server Join]: Getting Server.. 
+Server: Server (id: 473885473006157835, name: Tetro's Hangout)
+
+DRY [On Server Join]: Getting Members.. Size: 12
+
+DRY [On Server Join]: Creating Roles..
+
+DRY [On Server Join]: Created Role -> Newcomer
+DRY [On Server Join]: Created Role -> Regular
+DRY [On Server Join]: Created Role -> Pimp
+DRY [On Server Join]: Created Role -> Pimpest
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> 72Pin_Bot
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> Rocket League Stats
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> Maseter
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date > month
+DRY [On Server Join]: Added regular role to -> Artiglio
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> Master
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date > month
+DRY [On Server Join]: Added regular role to -> Janice
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> QB3R_T
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date > month
+DRY [On Server Join]: Added regular role to -> Tetro
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date > month
+DRY [On Server Join]: Added regular role to -> DwarvenExcursion
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> Tetro
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date > month
+DRY [On Server Join]: Added regular role to -> K0htakuu
+
+DRY [On Server Join]: Getting Member Join Dates..
+
+DRY [On Server Join]: join date < month
+DRY [On Server Join]: Added Newcomer role to -> [OSU] SunnySideGreg
+
+DRY [On Server Join]: Getting Server ID and API:
+DRY [On Server Join]: Server ID: 473885473006157835
+DRY [On Server Join]: API: org.javacord.core.DiscordApiImpl@26e5ed78
+
+DRY [On Server Join]: Starting Scheduled Task
+
+DRY [Scheduled 72PinBotTest]: Getting Server ID.. 
+DRY [Scheduled 72PinBotTest]: Server ID: Server (id: 530238092737511424, name: 72PinBotTest)
+
+DRY [Scheduled 72PinBotTest]: Found Roles
+
+DRY [Scheduled 72PinBotTest]: Newcomer Async Started.. 
+
+DRY [Scheduled 72PinBotTest]: Regular Async Started 
+
+DRY [Scheduled 72PinBotTest]: SixMonth Async Started 
+
+DRY [Scheduled 72PinBotTest]: Getting Newcomers.. 
+
+DRY [Scheduled 72PinBotTest]: Getting Regulars.. 
+DRY [Scheduled 72PinBotTest]: Regular Size: 0
+
+DRY [Scheduled 72PinBotTest]: Regular Async Finished 
+DRY [Scheduled 72PinBotTest]: Newcomer Size: 0
+
+DRY [Scheduled 72PinBotTest]: Newcomer Async Finished 
+
+DRY [Scheduled 72PinBotTest]: Getting SixMonths.. 
+DRY [Scheduled 72PinBotTest]: SixMonths Size: 0
+
+DRY [Scheduled 72PinBotTest]: SixMonth Async Finished 
+
+DRY [Scheduled Tetro's Hangout]: Getting Server ID.. 
+DRY [Scheduled Tetro's Hangout]: Server ID: Server (id: 473885473006157835, name: Tetro's Hangout)
+
+DRY [Scheduled Tetro's Hangout]: Found Roles
+
+DRY [Scheduled Tetro's Hangout]: Newcomer Async Started.. 
+
+DRY [Scheduled Tetro's Hangout]: Regular Async Started 
+
+DRY [Scheduled Tetro's Hangout]: Getting Newcomers.. 
+
+DRY [Scheduled Tetro's Hangout]: Getting Regulars.. 
+
+DRY [Scheduled Tetro's Hangout]: SixMonth Async Started 
+DRY [Scheduled Tetro's Hangout]: Regular Size: 0
+DRY [Scheduled Tetro's Hangout]: Newcomer Size: 0
+
+DRY [Scheduled Tetro's Hangout]: Newcomer Async Finished 
+
+DRY [Scheduled Tetro's Hangout]: Getting SixMonths.. 
+
+DRY [Scheduled Tetro's Hangout]: Regular Async Finished 
+DRY [Scheduled Tetro's Hangout]: SixMonths Size: 0
+
+DRY [Scheduled Tetro's Hangout]: SixMonth Async Finished 
+
+Process finished with exit code -1

@@ -8,7 +8,6 @@ import org.javacord.api.DiscordApiBuilder;
 import org.javacord.api.entity.permission.*;
 
 public class Main {
-
     public static void main(String[] args) {
 
         DiscordApi api = new DiscordApiBuilder().setToken(System.getenv("token")).login().join();
