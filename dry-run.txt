@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 DRY: DRY RUN VARIABLE DETECTED, NO CHANGES WILL BE MADE
+=======
+
+Bot has successfully started
+>>>>>>> 4f2305c31981997c97d3c871007c2369c6a8e866
 
 
 DRY [On Server Join]: Getting Server.. 
