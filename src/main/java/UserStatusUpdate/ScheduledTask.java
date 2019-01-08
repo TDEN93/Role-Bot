@@ -5,12 +5,8 @@ import org.javacord.api.entity.permission.Role;
 import org.javacord.api.entity.server.Server;
 import org.javacord.api.entity.user.User;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
-import java.util.logging.FileHandler;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 public class ScheduledTask extends TimerTask {
 
@@ -59,10 +55,10 @@ public class ScheduledTask extends TimerTask {
             System.out.println("DRY [Scheduled " + server.getName() + "]: Server ID: " + server);
 
 
-            newcomerRole = server.getRolesByNameIgnoreCase("Newcomer").get(0);
-            regularRole = server.getRolesByNameIgnoreCase("Regular").get(0);
-            sixMonthRole = server.getRolesByNameIgnoreCase("Pimp").get(0);
-            yearRole = server.getRolesByNameIgnoreCase("Pimpest").get(0);
+            newcomerRole = server.getRolesByNameIgnoreCase(System.getenv("newRole")).get(0);
+            regularRole = server.getRolesByNameIgnoreCase(System.getenv("oneMonthRole")).get(0);
+            sixMonthRole = server.getRolesByNameIgnoreCase(System.getenv("sixMonthRole")).get(0);
+            yearRole = server.getRolesByNameIgnoreCase(System.getenv("yearRole")).get(0);
 
             System.out.println("\nDRY [Scheduled " + server.getName() + "]: Found Roles");
 
@@ -78,7 +74,6 @@ public class ScheduledTask extends TimerTask {
             }).thenRun(() -> {
 
                 System.out.println("\nDRY [Scheduled " + server.getName() + "]: Getting Newcomers.. ");
-                System.out.println("DRY [Scheduled " + server.getName() + "]: Newcomer Size: " +  newcomerMembers.size());
 
                 newcomerMembers.forEach(member -> {
 
@@ -117,7 +112,6 @@ public class ScheduledTask extends TimerTask {
                 }
             }).thenRun(() -> {
                 System.out.println("\nDRY [Scheduled " + server.getName() + "]: Getting Regulars.. ");
-                System.out.println("DRY [Scheduled " + server.getName() + "]: Regular Size: " +  regularMembers.size());
 
 
                 regularMembers.forEach(member -> {
@@ -160,7 +154,6 @@ public class ScheduledTask extends TimerTask {
             }).thenRun(() -> {
 
                 System.out.println("\nDRY [Scheduled " + server.getName() + "]: Getting SixMonths.. ");
-                System.out.println("DRY [Scheduled " + server.getName() + "]: SixMonths Size: " +  sixMonthMembers.size());
 
 
                 sixMonthMembers.forEach(member -> {
@@ -195,12 +188,10 @@ public class ScheduledTask extends TimerTask {
             // NON-DRY_RUN
             server = api.getServerById(server_id).get();
 
-            System.out.println(server);
-
-            newcomerRole = server.getRolesByNameIgnoreCase("Newcomer").get(0);
-            regularRole = server.getRolesByNameIgnoreCase("Regular").get(0);
-            sixMonthRole = server.getRolesByNameIgnoreCase("Pimp").get(0);
-            yearRole = server.getRolesByNameIgnoreCase("Pimpest").get(0);
+            newcomerRole = server.getRolesByNameIgnoreCase(System.getenv("newRole")).get(0);
+            regularRole = server.getRolesByNameIgnoreCase(System.getenv("oneMonthRole")).get(0);
+            sixMonthRole = server.getRolesByNameIgnoreCase(System.getenv("sixMonthRole")).get(0);
+            yearRole = server.getRolesByNameIgnoreCase(System.getenv("yearRole")).get(0);
 
             // Newcomer to Regular
             CompletableFuture.runAsync(() -> {
@@ -236,8 +227,6 @@ public class ScheduledTask extends TimerTask {
             CompletableFuture.runAsync(() -> {
                 try {
                     regularMembers = regularRole.getUsers();
-
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -267,7 +256,6 @@ public class ScheduledTask extends TimerTask {
             CompletableFuture.runAsync(() -> {
                 try {
                     sixMonthMembers = sixMonthRole.getUsers();
-
 
                 } catch (Exception e) {
                     e.printStackTrace();

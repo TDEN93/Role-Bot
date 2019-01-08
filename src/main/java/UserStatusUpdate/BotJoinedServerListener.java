@@ -43,6 +43,8 @@ public class BotJoinedServerListener implements ServerJoinListener {
     @Override
     public void onServerJoin(ServerJoinEvent event) {
 
+        //TODO: Make env var for roles
+
         if(USE_DRY_RUN) {
 
             server = event.getServer();
@@ -53,37 +55,37 @@ public class BotJoinedServerListener implements ServerJoinListener {
 
             System.out.println("\nDRY [On Server Join]: Creating Roles..");
 
-            RoleBuilder newcomerRoleBuilder = new RoleBuilder(server).setName("Newcomer").setDisplaySeparately(true).setColor(Color.WHITE);
-            RoleBuilder regularRoleBuilder = new RoleBuilder(server).setName("Regular").setDisplaySeparately(true).setColor(Color.BLUE);
-            RoleBuilder sixMonthRoleBuilder = new RoleBuilder(server).setName("Pimp").setDisplaySeparately(true).setColor(Color.PINK);
-            RoleBuilder yearRoleBuilder = new RoleBuilder(server).setName("Pimpest").setDisplaySeparately(true).setColor(Color.YELLOW);
+            RoleBuilder newcomerRoleBuilder = new RoleBuilder(server).setName(System.getenv("newRole")).setDisplaySeparately(true).setColor(Color.WHITE);
+            RoleBuilder regularRoleBuilder = new RoleBuilder(server).setName(System.getenv("oneMonthRole")).setDisplaySeparately(true).setColor(Color.BLUE);
+            RoleBuilder sixMonthRoleBuilder = new RoleBuilder(server).setName(System.getenv("sixMonthRole")).setDisplaySeparately(true).setColor(Color.PINK);
+            RoleBuilder yearRoleBuilder = new RoleBuilder(server).setName(System.getenv("yearRole")).setDisplaySeparately(true).setColor(Color.YELLOW);
 
-            if(server.getRolesByNameIgnoreCase("Newcomer").isEmpty()) {
-                newcomerRoleBuilder.create();
+            if(server.getRolesByNameIgnoreCase(System.getenv("newRole")).isEmpty()) {
+                System.out.println("\nDRY [On Server Join]: Created Role -> " + System.getenv("newRole"));
+                newcomerRoleBuilder.create().join();
             }
 
-            if(server.getRolesByNameIgnoreCase("Regular").isEmpty()) {
-                regularRoleBuilder.create();
+            if(server.getRolesByNameIgnoreCase(System.getenv("oneMonthRole")).isEmpty()) {
+                System.out.println("DRY [On Server Join]: Created Role -> " + System.getenv("oneMonthRole"));
+                regularRoleBuilder.create().join();
             }
 
-            if(server.getRolesByNameIgnoreCase("Pimp").isEmpty()) {
-                sixMonthRoleBuilder.create();
+            if(server.getRolesByNameIgnoreCase(System.getenv("sixMonthRole")).isEmpty()) {
+                System.out.println("DRY [On Server Join]: Created Role -> " + System.getenv("sixMonthRole"));
+                sixMonthRoleBuilder.create().join();
             }
 
-            if(server.getRolesByNameIgnoreCase("Pimpest").isEmpty()) {
+            if(server.getRolesByNameIgnoreCase(System.getenv("yearRole")).isEmpty()) {
+                System.out.println("DRY [On Server Join]: Created Role -> " + System.getenv("yearRole"));
                 yearRoleBuilder.create().join();
             }
 
 
-            newcomerRole = server.getRolesByNameIgnoreCase("Newcomer").get(0);
-            regularRole = server.getRolesByNameIgnoreCase("Regular").get(0);
-            sixMonthRole = server.getRolesByNameIgnoreCase("Pimp").get(0);
-            yearRole = server.getRolesByNameIgnoreCase("Pimpest").get(0);
-
-            System.out.println("\nDRY [On Server Join]: Created Role -> " + newcomerRole.getName());
-            System.out.println("DRY [On Server Join]: Created Role -> " + regularRole.getName());
-            System.out.println("DRY [On Server Join]: Created Role -> " + sixMonthRole.getName());
-            System.out.println("DRY [On Server Join]: Created Role -> " + yearRole.getName());
+            System.out.println(System.getenv("newRole"));
+            newcomerRole = server.getRolesByNameIgnoreCase(System.getenv("newRole")).get(0);
+            regularRole = server.getRolesByNameIgnoreCase(System.getenv("oneMonthRole")).get(0);
+            sixMonthRole = server.getRolesByNameIgnoreCase(System.getenv("sixMonthRole")).get(0);
+            yearRole = server.getRolesByNameIgnoreCase(System.getenv("yearRole")).get(0);
 
             discordMembers.forEach(member -> {
                 if(member.getJoinedAtTimestamp(server).isPresent()) {
@@ -116,19 +118,19 @@ public class BotJoinedServerListener implements ServerJoinListener {
 
                 if(isMonthBeforeJoinDate) {
                     System.out.println("\nDRY [On Server Join]: join date < month");
-                    System.out.println("DRY [On Server Join]: Added Newcomer role to -> " + member.getName());
+                    System.out.println("DRY [On Server Join]: Added " + System.getenv("newRole") + " to -> " + member.getName());
 
                 } else if(isYearAfterJoinDate) {
                     System.out.println("\nDRY [On Server Join]: join date > year");
-                    System.out.println("DRY [On Server Join]: Added year role to -> " + member.getName());
+                    System.out.println("DRY [On Server Join]: Added " + System.getenv("yearRole") + " to -> " + member.getName());
 
                 } else if(isSixMonthsAfterJoinDate) {
                     System.out.println("\nDRY [On Server Join]: join date > 6 months");
-                    System.out.println("DRY [On Server Join]: Added SixMonth role to -> " + member.getName());
+                    System.out.println("DRY [On Server Join]: Added " + System.getenv("sixMonthRole") + " to -> " + member.getName());
 
                 } else if(isMonthAfterJoinDate) {
                     System.out.println("\nDRY [On Server Join]: join date > month");
-                    System.out.println("DRY [On Server Join]: Added regular role to -> " + member.getName());
+                    System.out.println("DRY [On Server Join]: Added " + System.getenv("oneMonthRole") + " to -> " + member.getName());
 
                 }
             });
@@ -147,31 +149,31 @@ public class BotJoinedServerListener implements ServerJoinListener {
 
             Collection<User> discordMembers = server.getMembers();
 
-            RoleBuilder newcomerRoleBuilder = new RoleBuilder(server).setName("Newcomer").setDisplaySeparately(true).setColor(Color.WHITE);
-            RoleBuilder regularRoleBuilder = new RoleBuilder(server).setName("Regular").setDisplaySeparately(true).setColor(Color.BLUE);
-            RoleBuilder sixMonthRoleBuilder = new RoleBuilder(server).setName("Pimp").setDisplaySeparately(true).setColor(Color.PINK);
-            RoleBuilder yearRoleBuilder = new RoleBuilder(server).setName("Pimpest").setDisplaySeparately(true).setColor(Color.YELLOW);
+            RoleBuilder newcomerRoleBuilder = new RoleBuilder(server).setName(System.getenv("newRole")).setDisplaySeparately(true).setColor(Color.WHITE);
+            RoleBuilder regularRoleBuilder = new RoleBuilder(server).setName(System.getenv("oneMonthRole")).setDisplaySeparately(true).setColor(Color.BLUE);
+            RoleBuilder sixMonthRoleBuilder = new RoleBuilder(server).setName(System.getenv("sixMonthRole")).setDisplaySeparately(true).setColor(Color.PINK);
+            RoleBuilder yearRoleBuilder = new RoleBuilder(server).setName(System.getenv("yearRole")).setDisplaySeparately(true).setColor(Color.YELLOW);
 
-            if(server.getRolesByNameIgnoreCase("Newcomer").isEmpty()) {
+            if(server.getRolesByNameIgnoreCase(System.getenv("newRole")).isEmpty()) {
                 newcomerRoleBuilder.create();
             }
 
-            if(server.getRolesByNameIgnoreCase("Regular").isEmpty()) {
+            if(server.getRolesByNameIgnoreCase(System.getenv("oneMonthRole")).isEmpty()) {
                 regularRoleBuilder.create();
             }
 
-            if(server.getRolesByNameIgnoreCase("Pimp").isEmpty()) {
+            if(server.getRolesByNameIgnoreCase(System.getenv("sixMonthRole")).isEmpty()) {
                 sixMonthRoleBuilder.create();
             }
 
-            if(server.getRolesByNameIgnoreCase("Pimpest").isEmpty()) {
+            if(server.getRolesByNameIgnoreCase(System.getenv("yearRole")).isEmpty()) {
                 yearRoleBuilder.create().join();
             }
 
-            newcomerRole = server.getRolesByNameIgnoreCase("Newcomer").get(0);
-            regularRole = server.getRolesByNameIgnoreCase("Regular").get(0);
-            sixMonthRole = server.getRolesByNameIgnoreCase("Pimp").get(0);
-            yearRole = server.getRolesByNameIgnoreCase("Pimpest").get(0);
+            newcomerRole = server.getRolesByNameIgnoreCase(System.getenv("newRole")).get(0);
+            regularRole = server.getRolesByNameIgnoreCase(System.getenv("oneMonthRole")).get(0);
+            sixMonthRole = server.getRolesByNameIgnoreCase(System.getenv("sixMonthRole")).get(0);
+            yearRole = server.getRolesByNameIgnoreCase(System.getenv("yearRole")).get(0);
 
             discordMembers.forEach(member -> {
                 if(member.getJoinedAtTimestamp(server).isPresent()) {
@@ -202,16 +204,12 @@ public class BotJoinedServerListener implements ServerJoinListener {
 
                 if(isMonthBeforeJoinDate) {
                     server.addRoleToUser(member,newcomerRole);
-                    System.out.println("Added Newcomer");
                 } else if(isYearAfterJoinDate) {
                     server.addRoleToUser(member,yearRole);
-                    System.out.println("Added Pimpest");
                 } else if(isSixMonthsAfterJoinDate) {
                     server.addRoleToUser(member,sixMonthRole);
-                    System.out.println("Added Pimp");
                 } else if(isMonthAfterJoinDate) {
                     server.addRoleToUser(member,regularRole);
-                    System.out.println("Added Regular");
                 }
             });
 
