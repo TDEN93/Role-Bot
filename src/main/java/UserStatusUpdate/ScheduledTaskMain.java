@@ -1,6 +1,7 @@
 package UserStatusUpdate;
 
 import org.javacord.api.DiscordApi;
+import org.javacord.api.entity.server.Server;
 
 import java.util.Timer;
 
@@ -19,6 +20,5 @@ public class ScheduledTaskMain {
         Timer time = new Timer();
         ScheduledTask st = new ScheduledTask(server_id, api);
         time.schedule(st, 10000, 10000);
-
     }
 }

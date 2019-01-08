@@ -5,7 +5,6 @@ import org.javacord.api.entity.server.Server;
 import org.javacord.api.event.server.member.ServerMemberJoinEvent;
 import org.javacord.api.listener.server.member.ServerMemberJoinListener;
 
-
 public class UserJoinListener implements ServerMemberJoinListener {
 
     private Server server;
@@ -20,6 +19,7 @@ public class UserJoinListener implements ServerMemberJoinListener {
             if( !server.getRolesByNameIgnoreCase("Newcomer").isEmpty() ) {
                 Role role = server.getRolesByNameIgnoreCase("Newcomer").get(0);
                 server.addRoleToUser(event.getUser(),role);
+                System.out.println("assigned Newcomer");
             }
 
         } catch ( Exception e ) {
